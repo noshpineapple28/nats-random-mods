@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "nats-drunk-craft",
+	"version": "${version}",
+	"name": "nats-drunk-craft",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"noshpineapple28"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/nats-drunk-craft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"nosh.pineapple.Natsdrunkcraft"
+		],
+		"client": [
+			"nosh.pineapple.NatsdrunkcraftClient"
+		]
+	},
+	"mixins": [
+		"nats-drunk-craft.mixins.json",
+		{
+			"config": "nats-drunk-craft.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
