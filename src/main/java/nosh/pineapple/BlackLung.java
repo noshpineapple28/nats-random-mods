@@ -1,5 +1,6 @@
 package nosh.pineapple;
 
+import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,8 +18,9 @@ public class BlackLung extends MobEffect {
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier)
     {
-        if (duration % 120 == 0)
-            return true;
+        if (duration % 120 == 60)
+            // 20 % chance each time this occurs
+            return (Math.random() * 10 < 2);
         return false;
     }
 
@@ -30,7 +32,7 @@ public class BlackLung extends MobEffect {
 							.lookupOrThrow(Registries.DAMAGE_TYPE)
 							.get(Natsdrunkcraft.BLACK_LUNG_DAMAGE.identifier()).get()
 			);
-            ((Player) entity).hurtServer(level, damageSource, 1.0f); // Higher amplifier gives you experience faster
+            ((Player) entity).hurtServer(level, damageSource, 1.0f);
 		}
 
 		return super.applyEffectTick(level, entity, amplifier);
