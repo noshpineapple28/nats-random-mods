@@ -1,6 +1,5 @@
 package nosh.pineapple;
 
-import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
